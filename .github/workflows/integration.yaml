@@ -10,13 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: ls -a via OPEN SSH Private Key
+      - name: Deploy Corona Stack
         uses: fifsky/ssh-action@master
         with:
           command: |
-            cd /tmp
-            ls -a
-            echo "env_var:$FIRST_NAME" >> /tmp/env-teste.log
+            git clone git@github.com:dmcloud-devops/corona-v2.git /www/corona/deploy
+            rm -Rf /www/corona/current/* -Rf
+            mv  /www/corona/deploy/* /www/corona/current/
+            cd /www/corona/current/
+            docker-compose up -d --force-recreate
           host: ${{ secrets.HOST }}
           user: root
           key: ${{ secrets.PRIVATE_KEY}}
