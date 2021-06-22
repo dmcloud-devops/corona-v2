@@ -1,6 +1,6 @@
 ﻿import axios from "axios";
 
-export const URL_BASE = "http://157.245.112.133:8080";
+export const URL_BASE = "http://172.17.0.1:8080";
 export const URL_HISTORY_GENERAL_GERMANY = `${URL_BASE}/germany`;
 export const URL_HISTORY_GENERAL_CASES = `${URL_BASE}/germany/history/cases/`;
 export const URL_HISTORY_GENERAL_DEATHS = `${URL_BASE}/germany/history/deaths/`;
