@@ -31,6 +31,6 @@ services:
     depends_on:
       - rki-api
     environment:
-      - URL_BASE=http://rki-api:8080
+      - URL_BASE=http://rki-api:3000
     networks:
       - redis-net
